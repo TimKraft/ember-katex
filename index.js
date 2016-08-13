@@ -13,7 +13,9 @@ module.exports = {
   name: 'ember-katex',
 
   included: function(app) {
-    this._super.included.apply(this, ...arguments);
+    //...Rest parameter is not supported by all
+    //this._super.included.apply(this, ...arguments);
+    this._super.included.apply(this, Array.from(arguments));
 
     var libPath  = path.join(app.bowerDirectory, 'KaTeX', 'dist');
     var fontPath = path.join(libPath, 'fonts');
